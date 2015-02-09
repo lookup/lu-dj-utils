@@ -6,6 +6,8 @@ Source: lookup_www.common.utils.urls (a subset with some edition).
 """
 from __future__ import absolute_import, print_function, unicode_literals
 
+import urlparse
+
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.urlresolvers import reverse
 from django.http import QueryDict
@@ -38,6 +40,33 @@ def build_querystring(query_dict):
         q.update(query_dict)
         query_dict = q
     return query_dict.urlencode()
+
+
+def cut_url_querystring(url):
+    """Cut the querystring from ``url``, if present.
+
+    :param url: str
+    :type url: str
+    :return: ``url`` without its querystring (if present)
+    :rtype: str
+
+    >>> cut_url_querystring('http://amazon.com/user/login/?qs')
+    'http://amazon.com/user/login/'
+    >>> cut_url_querystring('amazon.com/user/login/?qs')
+    'amazon.com/user/login/'
+    >>> cut_url_querystring('www.amazon.com/user/login/?qs')
+    'www.amazon.com/user/login/'
+    >>> cut_url_querystring('http://localhost:8081/user/login/?ref=/')
+    'http://localhost:8081/user/login/'
+    >>> cut_url_querystring('localhost/user/login/?ref=/')
+    'localhost/user/login/'
+
+    """
+    new_url = ''
+    temp = urlparse.urlsplit(url)
+    if temp.scheme:
+        new_url += temp.scheme + '://'
+    return new_url + temp.netloc + temp.path
 
 
 def reverse_with_querystring(url_name, query_dict, *args, **kwargs):

@@ -1,7 +1,7 @@
 # coding: utf-8
 """Email-related utilities to create, render and send messages.
 
-Source: lookup_www.common.utils.test (with some edition).
+Source: lookup_www.common.utils.mail (with some edition).
 
 """
 from __future__ import absolute_import, print_function, unicode_literals

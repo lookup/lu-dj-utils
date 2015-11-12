@@ -5,7 +5,7 @@ env:
   - TOXENV=py34
 
 install:
-    - pip install --upgrade pip setuptools tox virtualenv coveralls
+    - pip install --upgrade pip tox virtualenv coveralls
 
 script:
   - tox

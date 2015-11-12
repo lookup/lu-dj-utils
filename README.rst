@@ -22,4 +22,10 @@ At the project root directory run:
 
 .. code-block:: console
 
-    $ python -m unittest discover
+    python setup.py test
+
+To test the project in all the supported Python environments run:
+
+.. code-block:: console
+
+    tox

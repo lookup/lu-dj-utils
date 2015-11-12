@@ -3,8 +3,8 @@ lu-dj-utils (LookUP.cl's Django utilities)
 
 .. image:: https://secure.travis-ci.org/lookup/lu-dj-utils.png?branch=master
    :target: http://travis-ci.org/lookup/lu-dj-utils
-.. image:: https://coveralls.io/repos/lookup/lu-dj-utils/badge.png?branch=master
-   :target: https://coveralls.io/r/lookup/lu-dj-utils
+.. image:: https://coveralls.io/repos/lookup/lu-dj-utils/badge.svg?branch=master&service=github
+  :target: https://coveralls.io/github/lookup/lu-dj-utils?branch=master
 .. image:: https://img.shields.io/pypi/v/lu-dj-utils.svg
    :target: https://pypi.python.org/pypi/lu-dj-utils/
    :alt: Latest version

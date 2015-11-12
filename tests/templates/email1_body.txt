@@ -1,0 +1,7 @@
+Hola {{nombre}}
+
+Te damos la bienvenida a LookUp!
+
+Needs double\n to skip a line? No
+
+{# this template will be used for the body of the email #}

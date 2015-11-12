@@ -26,6 +26,11 @@ def hex_sha1(salt, value):
 
     Equivalent to hashlib.sha1(salt + value).hexdigest()
 
+    :param salt:
+    :type salt: six.binary_type
+    :param value:
+    :type value: six.binary_type
+
     """
     m = hashlib.sha1()
     m.update(salt)
@@ -38,7 +43,7 @@ def random_hex_32():
     a random generated version-4 UUID.
 
     """
-    return uuid.uuid4().get_hex()
+    return uuid.uuid4().hex
 
 
 def random_hex_6():

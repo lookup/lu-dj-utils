@@ -37,6 +37,7 @@ setup(
     author_email='glarrain@users.noreply.github.com',
     url='https://github.com/lookup/lu-dj-utils',
     packages=packages,
+    install_requires=['Django>=1.6'],
     license='3-clause BSD',  # TODO: verify name is correct
     zip_safe=False,
     classifiers=classifiers,

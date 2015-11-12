@@ -111,25 +111,26 @@ class HTMLEmail(PlainEmail):
         self.assert_HTML_alternative(msg, self.html_body)
 
     def test_real_send(self):
-        from lu_dj_utils.email import HTMLEmail
+        from lu_dj_utils.email import HTMLEmail, render_to_string
 
         _reset_test_outbox()
         self.assertEqual(len(django_mail.outbox), 0)
 
         subject = 'hello!'
         body = 'my email body'
+        html_body_template_name = 'email1_body.html'
         to = ['a@a.cl', 'x@xx.com']
 
-        with open(_template_file_abspath('test_html_body.html'), 'r') as f:
-            html_body = f.read()
-            result = HTMLEmail(
-                html_body, subject=subject, body=body).send()
-            self.assertEqual(result, 0)
+        html_body = render_to_string(html_body_template_name)
 
-            result = HTMLEmail(
-                html_body, subject=subject, body=body, to=to).send()
-            self.real_send_assertions(to, body, result)
-            self.assert_HTML_alternative(django_mail.outbox[0], html_body)
+        result = HTMLEmail(
+            html_body, subject=subject, body=body).send()
+        self.assertEqual(result, 0)
+
+        result = HTMLEmail(
+            html_body, subject=subject, body=body, to=to).send()
+        self.real_send_assertions(to, body, result)
+        self.assert_HTML_alternative(django_mail.outbox[0], html_body)
 
     def assert_HTML_alternative(self, message, html_body):
         html_alternative = message.alternatives[0]
@@ -315,9 +316,9 @@ class SendTemplatedMailTest(TestCase):
         self.context = dict(nombre=self.username)
 
         # these templates must exist
-        self.subject_name = 'common/tests/test_welcome_email_subject.txt'
-        self.body_name = 'common/tests/test_welcome_email_body.txt'
-        self.html_body_name = 'common/tests/test_html_body.html'
+        self.subject_name = 'email1_subject.txt'
+        self.body_name = 'email1_body.txt'
+        self.html_body_name = 'email1_body.html'
 
     def test_enviar_correo_with_valid_address(self):
         address = self.valid_address
@@ -391,19 +392,6 @@ class Functions(SimpleTestCase):
         self.assertEqual(func({'Reply-To': email1}, email2), {'Reply-To': email2})
         self.assertIsNone(func(None, None))
         self.assertEqual(func({}, None), {})
-
-
-def _local_file_abspath(filename):
-    import os
-    return os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), filename)
-
-
-def _template_file_abspath(filename):
-    import os
-    return os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        'templates', 'common', 'tests', filename)
 
 
 def _reset_test_outbox():

@@ -5,6 +5,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 from django.test import SimpleTestCase, TestCase
+from django.utils import six
 
 
 class FunctionsTest(TestCase):  # TODO: change to SimpleTestCase or unittest.TestCase?
@@ -23,4 +24,7 @@ class FunctionsTest(TestCase):  # TODO: change to SimpleTestCase or unittest.Tes
         self.assertIsInstance(req, WSGIRequest)
         self.assertEqual(req.META['PATH_INFO'], 'something')
         self.assertEqual(req.META['REQUEST_METHOD'], 'POST')
-        self.assertItemsEqual(req.POST.items(), [('x', 'y'), ('a', '1')])
+        six.assertCountEqual(  # in Python2 = assertItemsEqual
+            self,
+            req.POST.items(),
+            [('x', 'y'), ('a', '1')])

@@ -6,11 +6,13 @@ Source: lookup_www.common.utils.urls (a subset with some edition).
 """
 from __future__ import absolute_import, print_function, unicode_literals
 
-import urlparse
-
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.urlresolvers import reverse
 from django.http import QueryDict
+from django.utils.six.moves.urllib.parse import (
+    quote, quote_plus, unquote, unquote_plus, urlparse, urlunparse,
+    urlsplit, urlunsplit,
+)
 
 
 def build_querystring(query_dict):
@@ -63,7 +65,7 @@ def cut_url_querystring(url):
 
     """
     new_url = ''
-    temp = urlparse.urlsplit(url)
+    temp = urlsplit(url)
     if temp.scheme:
         new_url += temp.scheme + '://'
     return new_url + temp.netloc + temp.path

@@ -1,13 +1,15 @@
 # coding: utf-8
 from __future__ import absolute_import, print_function, unicode_literals
 
-import urllib
-
 from mock import MagicMock, Mock, NonCallableMock, NonCallableMagicMock, patch
 
 from django.http import QueryDict
 from django.test import RequestFactory, SimpleTestCase, TestCase
 from django.test.utils import override_settings
+from django.utils.six.moves.urllib.parse import (
+    quote, quote_plus, unquote, unquote_plus, urlparse, urlunparse,
+    urlsplit, urlunsplit,
+)
 
 
 class BuildQuerystring(SimpleTestCase):  # TODO: change to unittest.TestCase?
@@ -19,7 +21,7 @@ class BuildQuerystring(SimpleTestCase):  # TODO: change to unittest.TestCase?
         self._query_dict.update(self._dict)
 
         part_a = 'next=%2Fa%26b%2F'
-        part_b = 'x=' + urllib.quote_plus(str(mock_param))
+        part_b = 'x=' + quote_plus(str(mock_param))
         self.expected = (part_a + '&' + part_b, part_b + '&' + part_a)
 
     def test_with_dict(self):

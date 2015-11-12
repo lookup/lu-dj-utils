@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Verfificación de contacto del distribuidor</title>
+    <style>
+      body {
+        font-size: 13px;
+        margin: 0;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+        background-color: #39A6D6;
+        color: #3f3f3f;
+      }
+      a {
+        color: #39A6D6;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline !important;
+      }
+      a.btn {
+        color: #FFFFFF;
+        background-color: #39A6D6;
+        line-height:30px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-size: 0px;
+        font-size: 14px
+      }
+      table.container {
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body bgcolor="#39A6D6" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="-webkit-font-smoothing: antialiased;width:100% !important;background:#39A6D6;-webkit-text-size-adjust:none;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#39A6D6" style="padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px;">
+      <tr>
+        <td bgcolor="#39A6D6" width="100%">
+          <table bgcolor="#FFFFFF" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="container">
+            <tr>
+              <td>
+                <!-- header -->
+                <table width="600" cellpadding="20" cellspacing="0" border="0" style="width:100%;">
+                  <tr>
+                    <td>
+                      <a href="http://www.lookup.cl" title="LookUP.cl">
+                        <img align="left" vspace="0" hspace="0" border="0" src="http://blog.lookup.cl/wp-content/uploads/2013/01/logo-mail.jpg" alt="LookUP Newsletter" width="210" height="55" />
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+                <!-- saludo -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="padding-top:0px;padding-bottom:0px;padding-left:20px;padding-right:20px;width:100%;">
+                  <tr>
+                    <td style="font-weight:bold;">
+                      Estimad@ {{ nombre_usuario }}
+                    </td>
+                  </tr>
+                </table>
+                <!-- contenido -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="padding-top:10px;padding-bottom:0px;padding-left:20px;padding-right:20px;width:100%;">
+                  <tr>
+                    <td>
+                      <p>Hola. Nos gustaría verificar si {{ companhia }} te contactó por tu solicitud realizada el {{ fecha_hora }}, consistente en:</p>
+                      <ul>
+                        <li>Plan: {{ companhia }} - {{ plan }} (${{ precio }})</li>
+                        <li>Teléfono: {{ equipo }}</li>
+                      </ul>
+                      <p style="text-align:center;"><a href="#" class="btn">Sí, me contactaron</a> &nbsp; <a href="#" class="btn">No, no me han contactado</a></p>
+                      <p>Si tienes alguna duda, comentario, sugerencia o reclamo, escríbenos a <a href="mailto:contacto@lookup.cl">contacto@lookup.cl</a>.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

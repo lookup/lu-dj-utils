@@ -1,0 +1,8 @@
+Bienvenid{{sufijo_genero}} {{nombre}}
+{% comment %}
+This template will be used for the subject line of the
+email. Because it is used as the subject line of an email,
+this template's output **must** be only a single line of
+text; output longer than one line will be forcibly joined
+into only a single line.
+{% endcomment %}

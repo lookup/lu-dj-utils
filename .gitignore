@@ -1,8 +1,7 @@
-# Created by .gitignore support plugin (hsz.mobi)
-### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
 # C extensions
 *.so
@@ -13,7 +12,9 @@ env/
 build/
 develop-eggs/
 dist/
+downloads/
 eggs/
+.eggs/
 lib/
 lib64/
 parts/
@@ -29,7 +30,8 @@ var/
 *.manifest
 *.spec
 
-# Installer logs
+# Logs
+*.log
 pip-log.txt
 pip-delete-this-directory.txt
 
@@ -37,16 +39,18 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .coverage
+.coverage.*
 .cache
 nosetests.xml
 coverage.xml
+*,cover
 
 # Translations
 *.mo
 *.pot
 
 # Django stuff:
-*.log
+staticfiles/
 
 # Sphinx documentation
 docs/_build/
@@ -54,11 +58,21 @@ docs/_build/
 # PyBuilder
 target/
 
-# editors, IDEs
+# environment
+.env
+
+# editors, IDES
 .idea
+.sublime*
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
 *~
 *.swp
 *.swo
 
-# Local config
-.env*
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride

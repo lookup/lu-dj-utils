@@ -41,4 +41,10 @@ setup(
     license='3-clause BSD',  # TODO: verify name is correct
     zip_safe=False,
     classifiers=classifiers,
+
+    tests_require=[
+        'Django>=1.6',
+        'mock>=1.0.1',
+    ],
+    test_suite='runtests.runtests',
 )

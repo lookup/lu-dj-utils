@@ -26,6 +26,7 @@ classifiers = (
     'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
     'Framework :: Django',
+    'Topic :: Utilities',
 )
 
 setup(
@@ -38,7 +39,7 @@ setup(
     url='https://github.com/lookup/lu-dj-utils',
     packages=packages,
     install_requires=['Django>=1.6'],
-    license='3-clause BSD',  # TODO: verify name is correct
+    license='BSD',
     zip_safe=False,
     classifiers=classifiers,
 

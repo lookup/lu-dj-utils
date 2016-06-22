@@ -12,6 +12,16 @@ lu-dj-utils (LookUP.cl's Django utilities)
 LookUP.cl's open source utilities for use in Django projects.
 
 
+Install
+-------
+
+.. code-block:: console
+
+    pip install lu-dj-utils
+
+Do not change anything in your ``settings`` module.
+
+
 License
 -------
 
